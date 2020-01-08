@@ -13,6 +13,10 @@ matrix:
       - php: 7.1
         env: COMPOSER_ARGS=""
       - php: 7.2
+        env: COMPOSER_ARGS=""
+      - php: 7.3
+        env: COMPOSER_ARGS=""
+      - php: 7.4
         env: COMPOSER_ARGS="" WITH_CS="true"
 
       - php: 7.0
@@ -20,6 +24,10 @@ matrix:
       - php: 7.1
         env: COMPOSER_ARGS="--prefer-lowest"
       - php: 7.2
+        env: COMPOSER_ARGS="--prefer-lowest"
+      - php: 7.3
+        env: COMPOSER_ARGS="--prefer-lowest"
+      - php: 7.4
         env: COMPOSER_ARGS="--prefer-lowest"
 
 cache:
@@ -35,4 +43,4 @@ before_script:
 
 script:
     - bin/phpunit
-    - if [[ "$WITH_CS" == "true" ]]; then bin/php-cs-fixer fix --config=.php_cs -v --dry-run --stop-on-violation --using-cache=no --path-mode=intersection "${COMMIT_SCA_FILES[@]}"; fi
+    - if [[ "$WITH_CS" == "true" ]]; then bin/paysera-php-cs-fixer fix -v --dry-run --stop-on-violation --using-cache=no --path-mode=intersection "${COMMIT_SCA_FILES[@]}"; fi
