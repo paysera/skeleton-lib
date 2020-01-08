@@ -20,16 +20,15 @@
     "require-dev": {
         "phpunit/phpunit": "^6.5",
         "mockery/mockery": "^1.2",
-        "friendsofphp/php-cs-fixer": "2.11.1",
-        "paysera/lib-php-cs-fixer-config": "^2.0"
+        "paysera/lib-php-cs-fixer-config": "^2.2.2"
     },
     "config": {
         "bin-dir": "bin"
     },
     "scripts": {
         "phpunit": "phpunit",
-        "fix-cs": "php-cs-fixer fix",
-        "test-cs": "php-cs-fixer fix --dry-run -v",
+        "fix-cs": "paysera-php-cs-fixer fix",
+        "test-cs": "paysera-php-cs-fixer fix --dry-run -v",
         "test": ["@phpunit", "@test-cs"]
     }
 }
